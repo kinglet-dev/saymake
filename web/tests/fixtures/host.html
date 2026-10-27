@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The policy kinglet.dev serves for /saymake/ (its static/_headers). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Host page for the Saymake kit</title>
+<link rel="stylesheet" href="host.css">
+<link rel="stylesheet" href="web.css">
+<script type="module" src="web.js"></script>
+</head>
+<body>
+<header class="site-header"><span class="brand">kinglet</span></header>
+<main>
+  <h1>Describe it, then print or cut it</h1>
+  <!-- saymake:tool -->
+  <p class="error">A rule of the host page's own, which the tool must not take.</p>
+</main>
+</body>
+</html>

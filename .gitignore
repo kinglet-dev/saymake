@@ -1,0 +1,11 @@
+coverage.out
+*.coverprofile
+/build/
+/web/node_modules/
+/web/dist/
+test-results/
+/web/coverage/
+/web/build/
+/web/test-results/
+/web/playwright-report/
+/dist/

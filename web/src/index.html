@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Kinglet Saymake: describe it, then print or cut it</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1.75 1.15 54 54'%3E%3Cpath d='M42.4 15.4 C41.6 11.2 38.8 8.4 35.2 7.8 C36.6 9.4 37 10.8 36.8 12 C35.2 9.8 32.4 8.9 29.6 9.7 C31.2 10.9 31.9 12.3 31.8 13.5 C30.7 13 29.3 13.1 28.2 14.1 C29.8 14.5 30.6 15.3 30.9 16.4 Q36.4 13 42.4 15.4 Z' fill='%23E8472B'/%3E%3Cpath fill='%2316181D' d='M47.8 21.8 C46.5 15 40 12.5 34.5 13.5 C29 14.5 26 18.5 24 23 C21 29 17 33 12.5 37 L4 41.5 L7 43.2 L4.5 45.5 L14 42.5 C17 46 23 49 31 48.5 C40 48 46.5 42 47.5 34 C47.8 31 48 29 47.9 26.2 L53.5 24.3 Z'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="tool.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the tool</a>
+<header class="site-header">
+  <span class="brand">
+    <svg class="mark" viewBox="1.75 1.15 54 54" width="28" height="28" aria-hidden="true" focusable="false"><mask id="eye" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><circle cx="41.5" cy="22" r="3" fill="#000"/></mask><g mask="url(#eye)"><path class="crest" d="M42.4 15.4 C41.6 11.2 38.8 8.4 35.2 7.8 C36.6 9.4 37 10.8 36.8 12 C35.2 9.8 32.4 8.9 29.6 9.7 C31.2 10.9 31.9 12.3 31.8 13.5 C30.7 13 29.3 13.1 28.2 14.1 C29.8 14.5 30.6 15.3 30.9 16.4 Q36.4 13 42.4 15.4 Z"/><path class="body" d="M47.8 21.8 C46.5 15 40 12.5 34.5 13.5 C29 14.5 26 18.5 24 23 C21 29 17 33 12.5 37 L4 41.5 L7 43.2 L4.5 45.5 L14 42.5 C17 46 23 49 31 48.5 C40 48 46.5 42 47.5 34 C47.8 31 48 29 47.9 26.2 L53.5 24.3 Z"/></g></svg>
+    <span>kinglet</span>
+  </span>
+  <span class="badge">Saymake</span>
+</header>
+<main id="main">
+  <h1>Describe an object</h1>
+  <p class="lead">Type what you want to make, like “a tall fluted vase, 20 cm” or “round coaster with a border”. Everything runs on this computer; nothing you type leaves it.</p>
+<!-- saymake:tool -->
+<div class="saymake">
+  <form id="describe" class="sm-describe" novalidate>
+    <label for="text">Description</label>
+    <div class="sm-row">
+      <input id="text" name="text" type="text" maxlength="500" autocomplete="off" spellcheck="true" placeholder="a tall fluted vase, 20 cm" disabled>
+      <button id="make" type="submit" class="sm-button" disabled>Make it</button>
+    </div>
+    <p class="sm-hint">Vases, bowls, cups, jars and planters; trays, dishes and boxes; coasters, plaques and tags.</p>
+  </form>
+  <details class="sm-printer">
+    <summary>Printer</summary>
+    <form id="printer" class="sm-printer-size" novalidate>
+      <label>Printer width <span class="sm-field"><input id="printer-x" type="number" min="10" max="2000" step="1" value="256" inputmode="numeric"> mm</span></label>
+      <label>Printer depth <span class="sm-field"><input id="printer-y" type="number" min="10" max="2000" step="1" value="256" inputmode="numeric"> mm</span></label>
+      <label>Printer height <span class="sm-field"><input id="printer-z" type="number" min="10" max="2000" step="1" value="256" inputmode="numeric"> mm</span></label>
+    </form>
+    <p class="sm-hint">Solids are checked against this size, either way round on the bed.</p>
+  </details>
+  <p id="status" class="sm-status" role="status">Starting…</p>
+  <div id="error" class="sm-error" role="alert" hidden></div>
+  <section id="result" class="sm-result" aria-labelledby="result-title" hidden>
+    <h2 id="result-title"></h2>
+    <ul id="reading" class="sm-chips" aria-label="How your description was read"></ul>
+    <ul id="notes" class="sm-notes" aria-label="Notes"></ul>
+    <div class="sm-workspace">
+      <figure class="sm-preview">
+        <canvas id="view3d" tabindex="0" role="img" aria-label="3D preview"></canvas>
+        <div id="view2d" class="sm-view2d" hidden></div>
+        <p id="no3d" class="sm-no3d" hidden></p>
+        <figcaption id="size"></figcaption>
+      </figure>
+      <div class="sm-side">
+        <ul id="findings" class="sm-findings" aria-label="Printing checks"></ul>
+        <div id="downloads" class="sm-downloads"></div>
+        <details class="sm-settings" open>
+          <summary>Settings</summary>
+          <form id="settings" novalidate></form>
+        </details>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- /saymake:tool -->
+</main>
+<footer class="site-footer">Kinglet Saymake <span id="version">dev</span> · MIT License · <a href="https://github.com/kinglet-dev/saymake">Source on GitHub</a></footer>
+<script type="module" src="js/main.mjs"></script>
+</body>
+</html>

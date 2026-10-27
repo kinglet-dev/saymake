@@ -1,0 +1,8 @@
+/* A host page standing in for kinglet.dev: the brand tokens, plus rules
+   with the same class names as the tool's, styled differently, which must
+   not reach inside .saymake. */
+:root { --bg: #fafaf7; --fg: #16181d; --muted: #59636e; --line: #e5e1d8; --link: #c4381e; --focus: #c4381e;
+  --button-bg: #c4381e; --button-fg: #ffffff; --paper: #ffffff; --radius: .5rem; --font-sans: system-ui, sans-serif; }
+body { margin: 0 auto; max-width: 72rem; padding: 0 1rem; background: var(--bg); color: var(--fg); font-family: var(--font-sans); }
+.button { background: rgb(0, 128, 0); border-radius: 0; }
+.error { color: rgb(0, 0, 255); }

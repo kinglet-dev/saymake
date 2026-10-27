@@ -1,0 +1,2037 @@
+{
+ "version": 1,
+ "concepts": [
+  {
+   "id": "vessel",
+   "label": "Vessel",
+   "family": "vessel",
+   "words": [
+    "vessel",
+    "container",
+    "holder",
+    "receptacle"
+   ]
+  },
+  {
+   "id": "vase",
+   "label": "Vase",
+   "parent": "vessel",
+   "words": [
+    "vase",
+    "vases",
+    "urn",
+    "amphora",
+    "flower vase",
+    "ikebana vase",
+    "table vase",
+    "floor vase"
+   ],
+   "defaults": {
+    "height": 200,
+    "diameter": 110,
+    "base": 0.75,
+    "top": 0.65,
+    "bulge": 0.2,
+    "belly": 0.35,
+    "neck": 0.15,
+    "neckAt": 0.82
+   }
+  },
+  {
+   "id": "bud-vase",
+   "label": "Bud vase",
+   "parent": "vase",
+   "words": [
+    "bud vase",
+    "bud vases",
+    "flower bud vase"
+   ],
+   "defaults": {
+    "height": 120,
+    "diameter": 60,
+    "top": 0.45,
+    "neck": 0.3,
+    "neckAt": 0.8
+   }
+  },
+  {
+   "id": "bottle",
+   "label": "Bottle",
+   "parent": "vase",
+   "words": [
+    "bottle",
+    "carafe",
+    "decanter",
+    "flask",
+    "vial"
+   ],
+   "defaults": {
+    "height": 220,
+    "diameter": 90,
+    "base": 0.9,
+    "top": 0.35,
+    "bulge": 0.05,
+    "neck": 0.25,
+    "neckAt": 0.72
+   }
+  },
+  {
+   "id": "bowl",
+   "label": "Bowl",
+   "parent": "vessel",
+   "words": [
+    "bowl",
+    "bowls",
+    "basin",
+    "serving bowl",
+    "salad bowl",
+    "fruit bowl",
+    "cereal bowl",
+    "soup bowl",
+    "mixing bowl",
+    "ramen bowl",
+    "pet bowl",
+    "dog bowl",
+    "cat bowl",
+    "key bowl",
+    "noodle bowl",
+    "rice bowl"
+   ],
+   "defaults": {
+    "height": 70,
+    "diameter": 160,
+    "base": 0.5,
+    "top": 1.0,
+    "bulge": 0.08,
+    "belly": 0.6,
+    "neck": 0,
+    "floor": 3
+   }
+  },
+  {
+   "id": "cup",
+   "label": "Cup",
+   "parent": "vessel",
+   "words": [
+    "cup",
+    "cups",
+    "beaker",
+    "tumbler",
+    "glass",
+    "drinking cup",
+    "water cup",
+    "shot glass"
+   ],
+   "defaults": {
+    "height": 100,
+    "diameter": 80,
+    "base": 0.85,
+    "top": 1.0,
+    "bulge": 0,
+    "neck": 0
+   }
+  },
+  {
+   "id": "pencil-cup",
+   "label": "Pencil cup",
+   "parent": "cup",
+   "words": [
+    "pencil cup",
+    "pen holder",
+    "pencil holder",
+    "pen cup",
+    "brush holder",
+    "pen pot",
+    "utensil holder",
+    "utensil crock",
+    "toothbrush holder",
+    "makeup brush holder",
+    "crock",
+    "pencil pot",
+    "desk cup",
+    "spoon holder"
+   ],
+   "defaults": {
+    "height": 110,
+    "diameter": 75,
+    "base": 1.0,
+    "top": 1.0
+   }
+  },
+  {
+   "id": "jar",
+   "label": "Jar",
+   "parent": "vessel",
+   "words": [
+    "jar",
+    "jars",
+    "canister",
+    "pot",
+    "storage jar",
+    "cookie jar",
+    "spice jar",
+    "candy jar"
+   ],
+   "defaults": {
+    "height": 120,
+    "diameter": 100,
+    "base": 0.9,
+    "top": 0.85,
+    "bulge": 0.1,
+    "belly": 0.45,
+    "neck": 0
+   }
+  },
+  {
+   "id": "planter",
+   "label": "Planter",
+   "parent": "vessel",
+   "words": [
+    "planter",
+    "planters",
+    "plant pot",
+    "flower pot",
+    "flowerpot",
+    "succulent pot",
+    "herb pot",
+    "cactus pot",
+    "orchid pot",
+    "cachepot",
+    "plant holder",
+    "nursery pot",
+    "pot for plants",
+    "self watering pot",
+    "succulent planter",
+    "bonsai pot"
+   ],
+   "defaults": {
+    "height": 110,
+    "diameter": 120,
+    "base": 0.75,
+    "top": 1.0,
+    "bulge": 0,
+    "neck": 0,
+    "drain": 10,
+    "floor": 3
+   }
+  },
+  {
+   "id": "tray",
+   "label": "Tray",
+   "family": "tray",
+   "words": [
+    "tray",
+    "trays"
+   ]
+  },
+  {
+   "id": "serving-tray",
+   "label": "Serving tray",
+   "parent": "tray",
+   "words": [
+    "serving tray",
+    "ottoman tray",
+    "tea tray",
+    "breakfast tray",
+    "butler tray",
+    "large tray",
+    "bed tray"
+   ],
+   "defaults": {
+    "length": 400,
+    "width": 280,
+    "height": 40,
+    "roundness": 8
+   }
+  },
+  {
+   "id": "valet-tray",
+   "label": "Valet tray",
+   "parent": "tray",
+   "words": [
+    "valet tray",
+    "catchall",
+    "catch all",
+    "key tray",
+    "ring dish",
+    "trinket tray",
+    "trinket dish",
+    "jewelry tray",
+    "jewelry dish",
+    "key dish",
+    "coin tray",
+    "change tray",
+    "desk tray",
+    "vanity tray",
+    "perfume tray",
+    "catch tray",
+    "nightstand tray",
+    "entryway tray"
+   ],
+   "defaults": {
+    "length": 160,
+    "width": 110,
+    "height": 22,
+    "roundness": 4,
+    "flare": 10
+   }
+  },
+  {
+   "id": "dish",
+   "label": "Dish",
+   "parent": "tray",
+   "words": [
+    "dish",
+    "dishes",
+    "saucer",
+    "soap dish",
+    "plate",
+    "platter",
+    "spoon rest",
+    "candle plate",
+    "pie dish",
+    "bake dish",
+    "shallow dish"
+   ],
+   "defaults": {
+    "length": 180,
+    "width": 180,
+    "height": 20,
+    "roundness": 2,
+    "flare": 25
+   }
+  },
+  {
+   "id": "box",
+   "label": "Open box",
+   "parent": "tray",
+   "words": [
+    "box",
+    "bin",
+    "organizer",
+    "drawer organizer",
+    "crate",
+    "storage box",
+    "drawer tray",
+    "tool tray",
+    "desk organizer",
+    "caddy",
+    "tidy",
+    "planter box"
+   ],
+   "defaults": {
+    "length": 160,
+    "width": 100,
+    "height": 60,
+    "roundness": 12
+   }
+  },
+  {
+   "id": "flat",
+   "label": "Flat shape",
+   "family": "flat",
+   "words": [
+    "flat shape",
+    "cutout",
+    "cut out",
+    "blank"
+   ]
+  },
+  {
+   "id": "coaster",
+   "label": "Coaster",
+   "parent": "flat",
+   "words": [
+    "coaster",
+    "coasters",
+    "trivet",
+    "cup coaster",
+    "drink coaster",
+    "mug mat",
+    "pot stand",
+    "hot pad"
+   ],
+   "defaults": {
+    "length": 100,
+    "width": 100,
+    "roundness": 2
+   }
+  },
+  {
+   "id": "plaque",
+   "label": "Plaque",
+   "parent": "flat",
+   "words": [
+    "plaque",
+    "sign",
+    "board",
+    "panel",
+    "nameplate",
+    "name plate",
+    "door sign",
+    "wall plaque",
+    "placard",
+    "display plaque",
+    "plate sign",
+    "tile",
+    "tiles",
+    "wall tile"
+   ],
+   "defaults": {
+    "length": 200,
+    "width": 140,
+    "roundness": 8,
+    "border": 6
+   }
+  },
+  {
+   "id": "tag",
+   "label": "Tag",
+   "parent": "flat",
+   "words": [
+    "tag",
+    "tags",
+    "label",
+    "gift tag",
+    "keychain",
+    "key fob",
+    "ornament",
+    "luggage tag",
+    "pet tag",
+    "dog tag",
+    "bag tag",
+    "pendant",
+    "earring",
+    "charm"
+   ],
+   "defaults": {
+    "length": 40,
+    "width": 60,
+    "roundness": 4,
+    "hole": 4,
+    "holeFrom": 6
+   }
+  },
+  {
+   "id": "small-bowl",
+   "label": "Small bowl",
+   "parent": "bowl",
+   "words": [
+    "ramekin",
+    "dip bowl",
+    "pinch pot",
+    "sauce bowl",
+    "prep bowl",
+    "condiment bowl"
+   ],
+   "defaults": {
+    "height": 40,
+    "diameter": 85,
+    "base": 0.6,
+    "top": 1.0
+   }
+  },
+  {
+   "id": "mug",
+   "label": "Mug",
+   "parent": "cup",
+   "words": [
+    "mug",
+    "mugs",
+    "coffee mug",
+    "tea mug",
+    "stein",
+    "camp mug"
+   ],
+   "defaults": {
+    "height": 95,
+    "diameter": 82,
+    "base": 1.0,
+    "top": 1.0,
+    "handle": 0.6,
+    "handleReach": 26,
+    "handleThick": 9,
+    "wall": 2.4,
+    "floor": 3
+   }
+  },
+  {
+   "id": "teacup",
+   "label": "Teacup",
+   "parent": "cup",
+   "words": [
+    "teacup",
+    "tea cup",
+    "espresso cup",
+    "demitasse",
+    "coffee cup"
+   ],
+   "defaults": {
+    "height": 65,
+    "diameter": 80,
+    "base": 0.6,
+    "top": 1.1,
+    "bulge": 0.05,
+    "handle": 0.5,
+    "handleReach": 18,
+    "handleThick": 6,
+    "wall": 2,
+    "floor": 3
+   }
+  },
+  {
+   "id": "pitcher",
+   "label": "Pitcher",
+   "parent": "vessel",
+   "words": [
+    "pitcher",
+    "jug",
+    "creamer",
+    "milk jug",
+    "water jug",
+    "ewer"
+   ],
+   "defaults": {
+    "height": 200,
+    "diameter": 120,
+    "base": 0.9,
+    "top": 0.75,
+    "bulge": 0.15,
+    "belly": 0.4,
+    "neck": 0.1,
+    "neckAt": 0.8,
+    "handle": 0.6,
+    "handleReach": 35,
+    "handleThick": 12,
+    "wall": 2.4,
+    "floor": 3
+   }
+  },
+  {
+   "id": "candle-holder",
+   "label": "Candle holder",
+   "parent": "cup",
+   "words": [
+    "candle holder",
+    "votive",
+    "votive holder",
+    "tealight holder",
+    "tea light holder",
+    "candle cup",
+    "candle jar"
+   ],
+   "defaults": {
+    "height": 80,
+    "diameter": 75,
+    "base": 1.0,
+    "top": 1.0
+   }
+  },
+  {
+   "id": "bookmark",
+   "label": "Bookmark",
+   "parent": "flat",
+   "words": [
+    "bookmark",
+    "book mark"
+   ],
+   "defaults": {
+    "length": 50,
+    "width": 150,
+    "roundness": 6,
+    "hole": 4,
+    "holeFrom": 8
+   }
+  }
+ ],
+ "modifiers": [
+  {
+   "id": "tall",
+   "label": "tall",
+   "words": [
+    "tall",
+    "taller",
+    "high",
+    "tower"
+   ],
+   "ops": [
+    {
+     "param": "height",
+     "scale": 1.4
+    }
+   ]
+  },
+  {
+   "id": "short",
+   "label": "short",
+   "words": [
+    "short",
+    "shorter",
+    "low",
+    "squat",
+    "stubby"
+   ],
+   "ops": [
+    {
+     "param": "height",
+     "scale": 0.65
+    }
+   ]
+  },
+  {
+   "id": "wide",
+   "label": "wide",
+   "words": [
+    "wide",
+    "wider",
+    "broad",
+    "fat",
+    "chunky"
+   ],
+   "ops": [
+    {
+     "param": "diameter",
+     "scale": 1.35
+    },
+    {
+     "param": "width",
+     "scale": 1.3
+    }
+   ]
+  },
+  {
+   "id": "narrow",
+   "label": "narrow",
+   "words": [
+    "narrow",
+    "slim",
+    "skinny",
+    "thin",
+    "slender"
+   ],
+   "ops": [
+    {
+     "param": "diameter",
+     "scale": 0.7
+    },
+    {
+     "param": "width",
+     "scale": 0.7
+    }
+   ]
+  },
+  {
+   "id": "big",
+   "label": "big",
+   "words": [
+    "big",
+    "large",
+    "huge",
+    "giant",
+    "oversized",
+    "bigger",
+    "larger",
+    "jumbo",
+    "xl"
+   ],
+   "ops": [
+    {
+     "param": "height",
+     "scale": 1.4
+    },
+    {
+     "param": "diameter",
+     "scale": 1.4
+    },
+    {
+     "param": "length",
+     "scale": 1.4
+    },
+    {
+     "param": "width",
+     "scale": 1.4
+    }
+   ]
+  },
+  {
+   "id": "small",
+   "label": "small",
+   "words": [
+    "small",
+    "little",
+    "tiny",
+    "mini",
+    "miniature",
+    "smaller",
+    "petite",
+    "compact"
+   ],
+   "ops": [
+    {
+     "param": "height",
+     "scale": 0.7
+    },
+    {
+     "param": "diameter",
+     "scale": 0.7
+    },
+    {
+     "param": "length",
+     "scale": 0.7
+    },
+    {
+     "param": "width",
+     "scale": 0.7
+    }
+   ]
+  },
+  {
+   "id": "deep",
+   "label": "deep",
+   "words": [
+    "deep",
+    "deeper",
+    "deep walled"
+   ],
+   "ops": [
+    {
+     "param": "height",
+     "scale": 1.6
+    }
+   ]
+  },
+  {
+   "id": "shallow",
+   "label": "shallow",
+   "words": [
+    "shallow",
+    "flatter"
+   ],
+   "ops": [
+    {
+     "param": "height",
+     "scale": 0.55
+    }
+   ]
+  },
+  {
+   "id": "round",
+   "label": "round",
+   "words": [
+    "round",
+    "circular",
+    "circle"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 0
+    },
+    {
+     "param": "roundness",
+     "set": 2
+    }
+   ]
+  },
+  {
+   "id": "oval",
+   "label": "oval",
+   "words": [
+    "oval",
+    "elliptical",
+    "egg shaped",
+    "ovoid",
+    "elongated"
+   ],
+   "families": [
+    "tray",
+    "flat"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 0
+    },
+    {
+     "param": "roundness",
+     "set": 2
+    },
+    {
+     "param": "width",
+     "scale": 0.7
+    }
+   ]
+  },
+  {
+   "id": "square",
+   "label": "square",
+   "words": [
+    "square",
+    "squared",
+    "boxy"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 4
+    }
+   ]
+  },
+  {
+   "id": "rectangular",
+   "label": "rectangular",
+   "words": [
+    "rectangular",
+    "rectangle",
+    "oblong"
+   ],
+   "families": [
+    "tray",
+    "flat"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 4
+    }
+   ]
+  },
+  {
+   "id": "rounded-corners",
+   "label": "rounded",
+   "words": [
+    "rounded corners",
+    "round corners",
+    "rounded edges",
+    "rounded edge",
+    "soft corners",
+    "soft edges",
+    "rounded square",
+    "squircle",
+    "rounded",
+    "rounded rim",
+    "rounded lip",
+    "round rim",
+    "soft rim",
+    "rolled rim",
+    "bullnose",
+    "radiused",
+    "filleted"
+   ],
+   "ops": [
+    {
+     "param": "corner",
+     "set": 6
+    },
+    {
+     "param": "roundness",
+     "set": 4
+    },
+    {
+     "param": "rimStyle",
+     "set": 2
+    },
+    {
+     "param": "rim",
+     "set": 1.2
+    }
+   ]
+  },
+  {
+   "id": "triangular",
+   "label": "triangular",
+   "words": [
+    "triangular",
+    "triangle"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 3
+    }
+   ]
+  },
+  {
+   "id": "pentagonal",
+   "label": "pentagonal",
+   "words": [
+    "pentagonal",
+    "pentagon"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 5
+    }
+   ]
+  },
+  {
+   "id": "hexagonal",
+   "label": "hexagonal",
+   "words": [
+    "hexagonal",
+    "hexagon",
+    "hex",
+    "honeycomb"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 6
+    }
+   ]
+  },
+  {
+   "id": "octagonal",
+   "label": "octagonal",
+   "words": [
+    "octagonal",
+    "octagon"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 8
+    }
+   ]
+  },
+  {
+   "id": "faceted",
+   "label": "faceted",
+   "words": [
+    "faceted",
+    "geometric",
+    "low poly",
+    "angular"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "sides",
+     "set": 7
+    }
+   ]
+  },
+  {
+   "id": "fluted",
+   "label": "fluted",
+   "words": [
+    "fluted",
+    "fluting",
+    "ribbed",
+    "ridged",
+    "grooved",
+    "scalloped",
+    "wavy",
+    "flutes",
+    "ribs",
+    "ridges"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "flutes",
+     "set": 16
+    },
+    {
+     "param": "fluteDepth",
+     "set": 0.06
+    }
+   ]
+  },
+  {
+   "id": "deep-flutes",
+   "label": "deep flutes",
+   "words": [
+    "deep flutes",
+    "deep ribs",
+    "deeply fluted",
+    "bold ribs"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "flutes",
+     "set": 12
+    },
+    {
+     "param": "fluteDepth",
+     "set": 0.14
+    }
+   ]
+  },
+  {
+   "id": "twisted",
+   "label": "twisted",
+   "words": [
+    "twisted",
+    "twist",
+    "spiral",
+    "swirl",
+    "swirled",
+    "helix",
+    "helical"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "twist",
+     "set": 120
+    },
+    {
+     "param": "flutes",
+     "set": 12
+    }
+   ]
+  },
+  {
+   "id": "flared",
+   "label": "flared",
+   "words": [
+    "flared",
+    "flaring",
+    "trumpet",
+    "flared rim",
+    "wide mouth",
+    "wide top",
+    "slanted",
+    "slanted walls",
+    "slanted sides",
+    "sloped",
+    "sloped walls",
+    "sloping",
+    "sloping sides",
+    "angled",
+    "angled walls",
+    "angled sides",
+    "splayed",
+    "leaning walls",
+    "tapered walls",
+    "tapering walls",
+    "flared walls",
+    "flared sides"
+   ],
+   "ops": [
+    {
+     "param": "top",
+     "set": 1.35
+    },
+    {
+     "param": "neck",
+     "set": 0
+    },
+    {
+     "param": "flare",
+     "set": 20
+    }
+   ]
+  },
+  {
+   "id": "tapered",
+   "label": "tapered",
+   "words": [
+    "tapered",
+    "tapering",
+    "conical",
+    "cone"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "top",
+     "set": 0.6
+    },
+    {
+     "param": "base",
+     "set": 1.0
+    },
+    {
+     "param": "bulge",
+     "set": 0
+    }
+   ]
+  },
+  {
+   "id": "straight",
+   "label": "straight sides",
+   "words": [
+    "straight",
+    "straight sided",
+    "cylinder",
+    "cylindrical",
+    "column",
+    "tube",
+    "straight walls",
+    "straight sides",
+    "vertical walls",
+    "upright walls",
+    "upright sides"
+   ],
+   "ops": [
+    {
+     "param": "base",
+     "set": 1
+    },
+    {
+     "param": "top",
+     "set": 1
+    },
+    {
+     "param": "bulge",
+     "set": 0
+    },
+    {
+     "param": "neck",
+     "set": 0
+    },
+    {
+     "param": "flare",
+     "set": 0
+    }
+   ]
+  },
+  {
+   "id": "bulbous",
+   "label": "bulbous",
+   "words": [
+    "bulbous",
+    "round belly",
+    "pot bellied",
+    "bellied",
+    "curvy",
+    "globe",
+    "spherical",
+    "onion"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "bulge",
+     "set": 0.45
+    },
+    {
+     "param": "belly",
+     "set": 0.4
+    }
+   ]
+  },
+  {
+   "id": "narrow-neck",
+   "label": "narrow neck",
+   "words": [
+    "narrow neck",
+    "thin neck",
+    "slim neck",
+    "long neck",
+    "skinny neck",
+    "small opening",
+    "narrow opening"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "neck",
+     "set": 0.35
+    },
+    {
+     "param": "top",
+     "set": 0.55
+    }
+   ]
+  },
+  {
+   "id": "wide-base",
+   "label": "wide base",
+   "words": [
+    "wide base",
+    "wide bottom",
+    "stable",
+    "stable base",
+    "broad base"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "base",
+     "set": 1.15
+    }
+   ]
+  },
+  {
+   "id": "narrow-base",
+   "label": "narrow base",
+   "words": [
+    "narrow base",
+    "small base",
+    "narrow bottom",
+    "pedestal",
+    "tapered base"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "base",
+     "set": 0.45
+    }
+   ]
+  },
+  {
+   "id": "thick",
+   "label": "thick walls",
+   "words": [
+    "thick",
+    "thick walled",
+    "thick walls",
+    "heavy",
+    "sturdy walls",
+    "thicker",
+    "thicker walls",
+    "sturdy"
+   ],
+   "ops": [
+    {
+     "param": "wall",
+     "scale": 1.6
+    },
+    {
+     "param": "floor",
+     "scale": 1.4
+    }
+   ]
+  },
+  {
+   "id": "thin-walled",
+   "label": "thin walls",
+   "words": [
+    "thin walled",
+    "thin walls",
+    "delicate",
+    "lightweight",
+    "thinner walls"
+   ],
+   "ops": [
+    {
+     "param": "wall",
+     "scale": 0.6
+    }
+   ]
+  },
+  {
+   "id": "drainage",
+   "label": "drainage hole",
+   "words": [
+    "drainage",
+    "drainage hole",
+    "drain hole",
+    "drain",
+    "with drainage",
+    "draining"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "drain",
+     "set": 10
+    }
+   ]
+  },
+  {
+   "id": "no-drainage",
+   "label": "no drainage hole",
+   "words": [
+    "no drainage",
+    "no hole",
+    "without drainage",
+    "watertight",
+    "sealed"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "drain",
+     "set": 0
+    }
+   ]
+  },
+  {
+   "id": "hanging-hole",
+   "label": "hanging hole",
+   "words": [
+    "hanging hole",
+    "hole",
+    "hanger",
+    "hang",
+    "hanging",
+    "keyring hole",
+    "for hanging"
+   ],
+   "families": [
+    "flat"
+   ],
+   "ops": [
+    {
+     "param": "hole",
+     "set": 5
+    }
+   ]
+  },
+  {
+   "id": "border",
+   "label": "scored border",
+   "words": [
+    "border",
+    "frame",
+    "framed",
+    "outline",
+    "edge line",
+    "inset line"
+   ],
+   "families": [
+    "flat"
+   ],
+   "ops": [
+    {
+     "param": "border",
+     "set": 5
+    }
+   ]
+  },
+  {
+   "id": "flute-count",
+   "label": "flutes",
+   "words": [
+    "flutes",
+    "ribs",
+    "ridges",
+    "grooves",
+    "scallops",
+    "lobes",
+    "petals"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "count": "flutes"
+  },
+  {
+   "id": "side-count",
+   "label": "sides",
+   "words": [
+    "sides",
+    "sided",
+    "side",
+    "faces",
+    "facets",
+    "edges",
+    "corners"
+   ],
+   "count": "sides"
+  },
+  {
+   "id": "sharp",
+   "label": "sharp corners",
+   "words": [
+    "sharp corners",
+    "sharp edges",
+    "crisp edges",
+    "flat rim",
+    "square rim",
+    "square edge"
+   ],
+   "ops": [
+    {
+     "param": "corner",
+     "set": 0
+    },
+    {
+     "param": "roundness",
+     "set": 12
+    },
+    {
+     "param": "rimStyle",
+     "set": 0
+    }
+   ]
+  },
+  {
+   "id": "chamfered",
+   "label": "chamfered rim",
+   "words": [
+    "chamfered",
+    "chamfer",
+    "chamfered rim",
+    "chamfered edge",
+    "chamfered edges",
+    "chamfered brim",
+    "chamfered lip",
+    "chamfered top",
+    "beveled",
+    "bevelled",
+    "beveled rim",
+    "beveled edge",
+    "bevelled edge",
+    "bevel"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "rimStyle",
+     "set": 1
+    },
+    {
+     "param": "rim",
+     "set": 1
+    }
+   ]
+  },
+  {
+   "id": "slanted-rim",
+   "label": "slanted rim",
+   "words": [
+    "oblique",
+    "oblique cut",
+    "obliquely cut",
+    "slanted rim",
+    "slanted top",
+    "slanted opening",
+    "slanted brim",
+    "slanted lip",
+    "angled rim",
+    "angled top",
+    "angled opening",
+    "angled cut",
+    "cut at an angle",
+    "diagonal cut",
+    "sloped rim",
+    "sloped top",
+    "sloping rim",
+    "tilted rim",
+    "tilted top",
+    "asymmetric rim"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "slant",
+     "set": 25
+    }
+   ]
+  },
+  {
+   "id": "leaning",
+   "label": "leaning",
+   "words": [
+    "leaning",
+    "lean",
+    "leans",
+    "tilted",
+    "tilting",
+    "tilt",
+    "askew",
+    "crooked",
+    "slanting"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "lean",
+     "set": 12
+    }
+   ]
+  },
+  {
+   "id": "raised-foot",
+   "label": "raised foot",
+   "words": [
+    "raised base",
+    "raised bottom",
+    "raised foot",
+    "foot ring",
+    "footring",
+    "with a foot",
+    "footed",
+    "recessed base",
+    "recessed bottom",
+    "lifted base",
+    "trimmed foot"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "foot",
+     "set": 3
+    },
+    {
+     "param": "floor",
+     "set": 5
+    }
+   ]
+  },
+  {
+   "id": "handle",
+   "label": "handle",
+   "words": [
+    "handle",
+    "handled",
+    "with handle",
+    "with a handle",
+    "a handle",
+    "loop handle",
+    "side handle"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "handle",
+     "set": 0.55
+    }
+   ]
+  },
+  {
+   "id": "thick-handle",
+   "label": "thick handle",
+   "words": [
+    "thick handle",
+    "chunky handle",
+    "sturdy handle",
+    "big handle",
+    "large handle",
+    "wide handle",
+    "strong handle"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "handle",
+     "set": 0.6
+    },
+    {
+     "param": "handleThick",
+     "set": 12
+    }
+   ]
+  },
+  {
+   "id": "thin-handle",
+   "label": "thin handle",
+   "words": [
+    "thin handle",
+    "slim handle",
+    "delicate handle",
+    "small handle",
+    "narrow handle",
+    "dainty handle"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "handle",
+     "set": 0.45
+    },
+    {
+     "param": "handleThick",
+     "set": 6
+    }
+   ]
+  },
+  {
+   "id": "no-handle",
+   "label": "no handle",
+   "words": [
+    "no handle",
+    "without handle",
+    "without a handle",
+    "handleless"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "handle",
+     "set": 0
+    }
+   ]
+  },
+  {
+   "id": "lobed",
+   "label": "lobed",
+   "words": [
+    "lobed",
+    "lobes",
+    "petal",
+    "petals",
+    "petaled",
+    "flower like",
+    "scallop"
+   ],
+   "families": [
+    "vessel"
+   ],
+   "ops": [
+    {
+     "param": "flutes",
+     "set": 8
+    },
+    {
+     "param": "fluteDepth",
+     "set": 0.12
+    }
+   ]
+  }
+ ],
+ "sizes": {
+  "tall": {
+   "vessel": "height",
+   "tray": "height"
+  },
+  "high": {
+   "vessel": "height",
+   "tray": "height"
+  },
+  "height": {
+   "vessel": "height",
+   "tray": "height"
+  },
+  "deep": {
+   "vessel": "height",
+   "tray": "height"
+  },
+  "depth": {
+   "vessel": "height",
+   "tray": "height"
+  },
+  "wide": {
+   "vessel": "diameter",
+   "tray": "width",
+   "flat": "width"
+  },
+  "width": {
+   "vessel": "diameter",
+   "tray": "width",
+   "flat": "width"
+  },
+  "across": {
+   "vessel": "diameter",
+   "tray": "length",
+   "flat": "length"
+  },
+  "diameter": {
+   "vessel": "diameter",
+   "tray": "length",
+   "flat": "length"
+  },
+  "round": {
+   "vessel": "diameter",
+   "tray": "length",
+   "flat": "length"
+  },
+  "long": {
+   "tray": "length",
+   "flat": "length"
+  },
+  "length": {
+   "tray": "length",
+   "flat": "length"
+  },
+  "thick": {
+   "vessel": "wall",
+   "tray": "wall"
+  },
+  "wall": {
+   "vessel": "wall",
+   "tray": "wall"
+  },
+  "walls": {
+   "vessel": "wall",
+   "tray": "wall"
+  },
+  "floor": {
+   "vessel": "floor",
+   "tray": "floor"
+  },
+  "base": {
+   "vessel": "floor",
+   "tray": "floor"
+  },
+  "border": {
+   "flat": "border"
+  },
+  "hole": {
+   "vessel": "drain",
+   "flat": "hole"
+  },
+  "drain": {
+   "vessel": "drain"
+  },
+  "drainage": {
+   "vessel": "drain"
+  },
+  "thickness": {
+   "vessel": "wall",
+   "tray": "wall"
+  },
+  "chamfer": {
+   "vessel": "rim"
+  },
+  "bevel": {
+   "vessel": "rim"
+  },
+  "corner": {
+   "tray": "corner",
+   "flat": "corner"
+  },
+  "corners": {
+   "tray": "corner",
+   "flat": "corner"
+  },
+  "radius": {
+   "tray": "corner",
+   "flat": "corner"
+  }
+ },
+ "ignore": [
+  "a",
+  "an",
+  "the",
+  "with",
+  "and",
+  "of",
+  "for",
+  "to",
+  "in",
+  "on",
+  "by",
+  "that",
+  "is",
+  "it",
+  "its",
+  "my",
+  "me",
+  "make",
+  "please",
+  "some",
+  "about",
+  "around",
+  "roughly",
+  "approximately",
+  "approx",
+  "like",
+  "i",
+  "want",
+  "need",
+  "would",
+  "be",
+  "made",
+  "shaped",
+  "shape",
+  "style",
+  "kind",
+  "sort",
+  "x",
+  "mm",
+  "cm",
+  "very",
+  "really",
+  "quite",
+  "slightly",
+  "somewhat",
+  "bit",
+  "nice",
+  "pretty",
+  "cute",
+  "simple",
+  "basic",
+  "plain",
+  "modern",
+  "minimalist",
+  "minimal",
+  "elegant",
+  "classic",
+  "beautiful",
+  "decorative",
+  "sleek",
+  "new",
+  "good",
+  "stylish",
+  "fancy",
+  "cool",
+  "which",
+  "has",
+  "have",
+  "having",
+  "are",
+  "from",
+  "at",
+  "as",
+  "or",
+  "but",
+  "into",
+  "onto",
+  "up",
+  "can",
+  "you",
+  "create",
+  "design",
+  "print",
+  "printed",
+  "printable",
+  "laser",
+  "cut",
+  "3d",
+  "2d",
+  "object",
+  "thing",
+  "piece",
+  "item",
+  "one",
+  "type",
+  "just",
+  "also",
+  "something",
+  "few",
+  "use",
+  "used",
+  "using",
+  "sides",
+  "side",
+  "walls",
+  "wall",
+  "edge",
+  "edges",
+  "rim",
+  "rims",
+  "brim",
+  "lip",
+  "clean"
+ ],
+ "unsupported": [
+  {
+   "words": [
+    "text",
+    "word",
+    "words",
+    "letters",
+    "lettering",
+    "name",
+    "monogram",
+    "initials",
+    "engraved",
+    "engraving",
+    "engrave",
+    "inscription",
+    "inscribed",
+    "logo",
+    "writing",
+    "written",
+    "emboss",
+    "embossed",
+    "debossed",
+    "quote",
+    "message",
+    "saying"
+   ],
+   "message": "Text and logos aren't supported yet."
+  },
+  {
+   "words": [
+    "lid",
+    "lids",
+    "cover",
+    "covered",
+    "with lid",
+    "with a lid",
+    "lidded",
+    "stopper",
+    "cork"
+   ],
+   "message": "Lids aren't supported yet."
+  },
+  {
+   "words": [
+    "stem",
+    "stemmed",
+    "goblet",
+    "chalice",
+    "wine glass",
+    "champagne flute",
+    "martini glass",
+    "cocktail glass"
+   ],
+   "message": "Stems (goblets, wine glasses) aren't supported yet."
+  },
+  {
+   "words": [
+    "spout",
+    "spouted",
+    "pour spout",
+    "teapot",
+    "kettle",
+    "watering can"
+   ],
+   "message": "Spouts aren't supported yet."
+  },
+  {
+   "words": [
+    "compartment",
+    "compartments",
+    "divider",
+    "dividers",
+    "divided",
+    "sections",
+    "sectioned",
+    "partitioned",
+    "grid tray"
+   ],
+   "message": "Dividers and compartments aren't supported yet."
+  },
+  {
+   "words": [
+    "legs",
+    "leg",
+    "tripod",
+    "legged"
+   ],
+   "message": "Legs aren't supported yet; a raised foot is."
+  },
+  {
+   "words": [
+    "texture",
+    "textured",
+    "pattern",
+    "patterned",
+    "voronoi",
+    "lattice",
+    "mesh",
+    "perforated",
+    "holes",
+    "dots",
+    "polka dots",
+    "knurled",
+    "diamond pattern",
+    "honeycomb pattern",
+    "woven",
+    "basket weave",
+    "stripes",
+    "striped"
+   ],
+   "message": "Surface patterns other than flutes, facets and twists aren't supported yet."
+  },
+  {
+   "words": [
+    "heart",
+    "heart shaped",
+    "star",
+    "star shaped",
+    "animal",
+    "animal shaped",
+    "cat shaped",
+    "dog shaped",
+    "flower shaped",
+    "leaf",
+    "leaf shaped",
+    "cloud",
+    "cloud shaped",
+    "shaped like",
+    "face",
+    "skull",
+    "moon",
+    "moon shaped"
+   ],
+   "message": "Free-form shapes (hearts, stars, animals) aren't supported yet."
+  },
+  {
+   "words": [
+    "red",
+    "blue",
+    "green",
+    "black",
+    "white",
+    "yellow",
+    "pink",
+    "purple",
+    "orange",
+    "gray",
+    "grey",
+    "gold",
+    "silver",
+    "brown",
+    "beige",
+    "clear",
+    "transparent",
+    "color",
+    "colored",
+    "colour",
+    "coloured",
+    "wood",
+    "wooden",
+    "ceramic",
+    "clay",
+    "metal",
+    "marble",
+    "pla",
+    "petg",
+    "resin",
+    "acrylic",
+    "plywood"
+   ],
+   "message": "Colors and materials are set in your slicer or laser software, not here."
+  },
+  {
+   "words": [
+    "threaded",
+    "screw top",
+    "threads",
+    "screw lid"
+   ],
+   "message": "Screw threads aren't supported yet."
+  },
+  {
+   "words": [
+    "hinge",
+    "hinged",
+    "magnet",
+    "magnetic",
+    "snap fit",
+    "clip"
+   ],
+   "message": "Moving or joined parts aren't supported yet."
+  }
+ ]
+}

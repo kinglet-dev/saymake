@@ -1,0 +1,16 @@
+{
+  "name": "saymake-page",
+  "private": true,
+  "description": "Build and tests for the Saymake page (tooling only; nothing here ships in the page).",
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.mjs",
+    "test:unit": "node --test --experimental-test-coverage --test-coverage-include=src/js/lib/** --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 tests/unit/*.test.mjs",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "axe-core": "4.14.0",
+    "esbuild": "0.28.2"
+  }
+}

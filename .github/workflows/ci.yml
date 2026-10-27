@@ -1,0 +1,120 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version-file: go.mod
+      - name: Vet
+        run: |
+          go vet ./...
+          GOOS=js GOARCH=wasm go vet ./cmd/...
+      - name: Tests with race detector and coverage
+        run: go tool ginkgo -r --race --cover --coverprofile=coverage.out --skip-package=e2e
+      - name: Require 100% coverage
+        run: scripts/check-coverage.sh coverage.out
+
+  page:
+    name: WebAssembly and page
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22 # the unit tests' coverage limits need Node 22.8 or later
+      - name: The WebAssembly build end to end, with the composition root's coverage
+        run: go tool ginkgo ./e2e
+      - name: Install the build and test tools
+        working-directory: web
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Build the page, the kit and the single file
+        working-directory: web
+        run: node build.mjs
+      - name: Unit tests of the page's modules (100% coverage)
+        working-directory: web
+        run: npm run -s test:unit
+      - name: Install the browser for the browser tests
+        working-directory: web
+        run: npx playwright install --with-deps --only-shell chromium
+      - name: Browser tests (including accessibility with axe-core, and the kit in a host page)
+        working-directory: web
+        run: npx playwright test
+
+  checks:
+    name: Formatting, supply chain and fuzzing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version-file: go.mod
+      - name: Formatting
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; echo "Run gofmt -w on the files above."; exit 1; }
+      - name: go.sum matches the Go checksum database
+        # Rebuilds go.sum from scratch, verified against sum.golang.org, and compares.
+        run: |
+          mv go.sum go.sum.committed
+          go mod tidy
+          diff -u go.sum.committed go.sum
+      - name: README images are safe SVGs (no scripts or external references)
+        run: |
+          if grep -nE '<script|href=|xlink:|url\(|@import|<foreignObject' docs/images/*.svg; then
+            echo "Remove the scripts or external references above."; exit 1
+          fi
+      - name: Known vulnerabilities (govulncheck)
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+      - name: Fuzz the description reader (60 s)
+        run: go test ./acceptance -run '^$' -fuzz=FuzzRead -fuzztime=60s
+      - name: Fuzz the page's requests (30 s)
+        run: go test ./adapters/api -run '^$' -fuzz=FuzzHandle -fuzztime=30s
+      - name: Fuzz the vocabulary loader (30 s)
+        run: go test ./adapters/vocabjson -run '^$' -fuzz=FuzzLoad -fuzztime=30s
+
+  release-dry-run:
+    name: Release build (not published)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: Build a release's files
+        run: scripts/release.sh 0.0.0-ci
+      - name: The checksums and the SBOM check out
+        working-directory: dist
+        run: |
+          sha256sum -c --strict saymake_0.0.0-ci_checksums.txt
+          python3 -m json.tool saymake_0.0.0-ci_sbom.spdx.json > /dev/null

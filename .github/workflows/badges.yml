@@ -1,0 +1,60 @@
+name: Badges
+
+# Makes the README's badges here, so no badge service sees the repository:
+# coverage measured by the tests, the latest published release, the license
+# and the Go version. They are kept on the "badges" branch, one commit that
+# is replaced each time.
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: badges
+  cancel-in-progress: true
+
+jobs:
+  badges:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to replace the badges branch
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version-file: go.mod
+      - name: Measure coverage
+        run: go tool ginkgo -r --cover --coverprofile=coverage.out --skip-package=e2e
+      - name: Make badges
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/badges"
+          out="$RUNNER_TEMP/badges"
+          total=$(go tool cover -func=coverage.out | awk '/^total:/ {print $NF}')
+          color='#1A7F37'; [[ "$total" == "100.0%" ]] || color='#C4381E'
+          scripts/badge.sh coverage "$total" "$color" > "$out/coverage.svg"
+          release=$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName --jq .tagName 2>/dev/null || echo none)
+          scripts/badge.sh release "$release" > "$out/release.svg"
+          scripts/badge.sh license MIT > "$out/license.svg"
+          scripts/badge.sh go "$(awk '/^go / {print $2}' go.mod)" > "$out/go.svg"
+      - name: Replace the badges branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd "$RUNNER_TEMP/badges"
+          git init -q -b badges
+          git config user.name kinglet-dev-admin
+          git config user.email info@kinglet.dev
+          git config commit.gpgsign false
+          git add .
+          git commit -q -m "Update badges"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" badges
