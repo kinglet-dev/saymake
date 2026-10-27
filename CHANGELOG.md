@@ -5,7 +5,7 @@ All notable changes to Saymake are listed here. It follows
 description that works keeps working (words are added, not taken away), the
 files it makes keep their formats, and the kit's files keep their names.
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-10-27)
 
 ### Added
 
